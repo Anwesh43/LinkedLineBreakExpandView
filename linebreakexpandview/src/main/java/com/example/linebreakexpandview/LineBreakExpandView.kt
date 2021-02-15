@@ -183,4 +183,27 @@ class LineBreakExpandView(ctx : Context) : View(ctx) {
             curr.startUpdating(cb)
         }
     }
+
+    data class Renderer(var view : LineBreakExpandView) {
+
+        private val lbe : LineBreakExpand = LineBreakExpand(0)
+        private val paint : Paint = Paint(Paint.ANTI_ALIAS_FLAG)
+        private val animator : Animator = Animator(view)
+
+        fun render(canvas : Canvas) {
+            canvas.drawColor(backColor)
+            lbe.draw(canvas, paint)
+            animator.animate {
+                lbe.startUpdating {
+                    animator.stop()
+                }
+            }
+        }
+
+        fun handleTap() {
+            lbe.startUpdating {
+                animator.start()
+            }
+        }
+    }
 }

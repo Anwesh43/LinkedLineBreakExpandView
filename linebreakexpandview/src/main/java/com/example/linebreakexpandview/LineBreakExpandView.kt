@@ -208,4 +208,13 @@ class LineBreakExpandView(ctx : Context) : View(ctx) {
             }
         }
     }
+
+    companion object {
+
+        fun create(activity : Activity) : LineBreakExpandView {
+            val view : LineBreakExpandView = LineBreakExpandView(activity)
+            activity.setContentView(view)
+            return view
+        }
+    }
 }

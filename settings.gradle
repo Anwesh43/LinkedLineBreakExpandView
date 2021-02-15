@@ -1,0 +1,3 @@
+include ':linebreakexpandview'
+include ':app'
+rootProject.name = "LinkedLineBreakExpandView"
